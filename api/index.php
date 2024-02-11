@@ -6,6 +6,11 @@ use Dompdf\Dompdf;
 $json = file_get_contents('php://input');
 $data = json_decode($json, true);
 
+if (!$data) {
+    echo 'No data provided';
+    exit;
+}
+
 if (!array_key_exists('html', $data)) {
     echo 'No html provided';
     exit;
